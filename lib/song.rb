@@ -39,6 +39,12 @@ class Song
   def self.alphabetical
     self.all.sort { |a, b,| a.name <=> b.name }
   end 
+  
+  def self.new_from_filename(file)
+    data = file.split(/-./)
+    s = self.new_by_name(data[1])
+    s.artist_name= data[0]
+  end 
 
   def save
     self.class.all << self
