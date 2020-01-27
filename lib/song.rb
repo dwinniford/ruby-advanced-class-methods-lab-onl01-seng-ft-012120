@@ -17,6 +17,12 @@ class Song
     s.name= name 
     s 
   end 
+  
+  def self.create_by_name(name)
+    s = self.new_by_name(name)
+    s.save 
+    s
+  end 
 
   def save
     self.class.all << self
